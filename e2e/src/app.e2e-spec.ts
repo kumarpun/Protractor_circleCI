@@ -18,7 +18,8 @@ describe('workspace-project WildCards', () => {
   it('should display title screen', () => {
     expect(page.getTitleText());
     expect(browser.isElementPresent(page.amazonLogo));
-    // page.school.sendKeys("St production");    
+    expect(browser.isElementPresent(page.searchProductArea));
+    page.searchProductArea.sendKeys('t-shirt');
     browser.sleep(3000);
     // page.SelectSchool.click();
     // page.ClickGroup.click();
