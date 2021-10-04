@@ -62,8 +62,8 @@ export class AppPage {
     return element(by.xpath('//*[@id="newTextInput"]'));
   }
 
-  public get PostButton(): ElementFinder {
-    return element(by.xpath("//button[contains (text(), 'POST')]"));
+  public get searchProductArea(): ElementFinder {
+    return element(by.xpath('//*[@id="twotabsearchtextbox"]'));
     
 }
 }
