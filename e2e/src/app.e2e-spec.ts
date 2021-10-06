@@ -5,7 +5,7 @@ import { triggerAsyncId } from 'async_hooks';
 import { protractor } from 'protractor/built/ptor';
 import { async } from 'rxjs/internal/scheduler/async';
 
-describe('workspace-project WildCards', () => {
+describe('Protractor test', () => {
   let page = new AppPage;
 
   beforeEach(async () => {

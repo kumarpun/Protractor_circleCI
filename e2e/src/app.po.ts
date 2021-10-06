@@ -66,4 +66,8 @@ export class AppPage {
     return element(by.xpath("//button[contains (text(), 'POST')]"));
     
 }
+
+public get loginLink(): ElementFinder {
+  return element(by.xpath("//body[1]/div[1]/header[1]/div[1]/div[1]/div[3]/div[1]/a[2]/div[1]/span[1]"));
+}
 }
