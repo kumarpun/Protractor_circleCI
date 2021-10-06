@@ -5,7 +5,7 @@ import { triggerAsyncId } from 'async_hooks';
 import { protractor } from 'protractor/built/ptor';
 import { async } from 'rxjs/internal/scheduler/async';
 
-describe('Protractor test', () => {
+describe('Search phone test', () => {
   let page = new AppPage;
 
   beforeEach(async () => {
@@ -16,21 +16,9 @@ describe('Protractor test', () => {
   });
 
   it('should display title screen', () => {
-    expect(page.getTitleText());
     expect(browser.isElementPresent(page.amazonLogo));
     expect(browser.isElementPresent(page.searchProductArea));
-    page.searchProductArea.sendKeys('t-shirt');
+    page.searchProductArea.sendKeys('iPhone');
     browser.sleep(3000);
-    // page.SelectSchool.click();
-    // page.ClickGroup.click();
-    // page.SelectGroup.click();
-    // page.emailInput.sendKeys('kumar1');
-    // page.passwordInput.sendKeys('qwertyuiop');
-    // page.loginButton.click();
-    // browser.sleep(5000);
-    // page.textAreaForPost.click();
-    // page.textAreaForPost.sendKeys('test from circle ci in production class');
-    // page.PostButton.click();
-    // browser.sleep(5000);
   });
 });
