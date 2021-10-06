@@ -1,4 +1,3 @@
-
 import { AppPage } from './app.po';
 import { browser, ExpectedConditions, element, by } from 'protractor';
 import { triggerAsyncId } from 'async_hooks';
@@ -15,7 +14,7 @@ describe('workspace-project WildCards', () => {
     page.navigateTo();
   });
 
-  it('should display title screen', () => {
+  it('should search t-shirt', () => {
     expect(page.getTitleText());
     expect(browser.isElementPresent(page.amazonLogo));
     expect(browser.isElementPresent(page.searchProductArea));
@@ -32,5 +31,13 @@ describe('workspace-project WildCards', () => {
     // page.textAreaForPost.sendKeys('test from circle ci in production class');
     // page.PostButton.click();
     // browser.sleep(5000);
+  });
+
+  it('should search macbook pro', () => {
+    expect(page.getTitleText());
+    expect(browser.isElementPresent(page.amazonLogo));
+    expect(browser.isElementPresent(page.searchProductArea));
+    page.searchProductArea.sendKeys('macbook pro');
+    browser.sleep(3000);
   });
 });
