@@ -66,4 +66,12 @@ export class AppPage {
     return element(by.xpath('//*[@id="twotabsearchtextbox"]'));
     
 }
+
+public get watchLink(): ElementFinder {
+  return element(by.xpath("//body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]"));
+}
+
+public get searchIcon(): ElementFinder {
+  return element(by.xpath('//*[@id="nav-search-submit-button"]'));
+}
 }

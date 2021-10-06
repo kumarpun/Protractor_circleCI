@@ -5,7 +5,7 @@ import { triggerAsyncId } from 'async_hooks';
 import { protractor } from 'protractor/built/ptor';
 import { async } from 'rxjs/internal/scheduler/async';
 
-describe('Protractor test', () => {
+describe('Search watch test', () => {
   let page = new AppPage;
 
   beforeEach(async () => {
@@ -15,22 +15,14 @@ describe('Protractor test', () => {
     page.navigateTo();
   });
 
-  it('should display title screen', () => {
-    expect(page.getTitleText());
+  fit('should view watch detail', () => {
     expect(browser.isElementPresent(page.amazonLogo));
     expect(browser.isElementPresent(page.searchProductArea));
-    page.searchProductArea.sendKeys('t-shirt');
+    page.searchProductArea.sendKeys('watch for men');
     browser.sleep(3000);
-    // page.SelectSchool.click();
-    // page.ClickGroup.click();
-    // page.SelectGroup.click();
-    // page.emailInput.sendKeys('kumar1');
-    // page.passwordInput.sendKeys('qwertyuiop');
-    // page.loginButton.click();
-    // browser.sleep(5000);
-    // page.textAreaForPost.click();
-    // page.textAreaForPost.sendKeys('test from circle ci in production class');
-    // page.PostButton.click();
-    // browser.sleep(5000);
+    page.searchIcon.click();
+    expect(browser.isElementPresent(page.watchLink));
+    page.watchLink.click();
+    browser.sleep(3000);
   });
 });
