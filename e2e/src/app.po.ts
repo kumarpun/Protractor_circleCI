@@ -66,4 +66,8 @@ export class AppPage {
     return element(by.xpath('//*[@id="twotabsearchtextbox"]'));
     
 }
+
+public get cartLink(): ElementFinder {
+  return element(by.xpath('//*[@id="nav-cart-count"]'));
+}
 }
