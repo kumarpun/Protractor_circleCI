@@ -1,5 +1,3 @@
-
-
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
@@ -25,15 +23,8 @@ jobs:
             key: node_modules-{{ .Branch }}-{{ checksum "package-lock.json" }}
             paths:
               - "node_modules"
-        
-        - run: mkdir ~/e2e/Result
+        - run: mkdir ~/e2e/Result        
 
         - run:
             name: Run test
             command: npm test
-            environment:
-                MOCHA_FILE: ~/e2e/Result/xmlresults.xml
-              when: always
-
-        - store_test_results:
-            path: ~/e2e/Result
