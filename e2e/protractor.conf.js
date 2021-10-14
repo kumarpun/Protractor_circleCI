@@ -1,8 +1,9 @@
-// @ts-check
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
-const { SpecReporter, StacktraceOption } = require('jasmine-spec-reporter');
+var jasmineReporters = require('jasmine-reporters');
+var htmlReporter = require('protractor-html-reporter-2');
+
 
 /**
  * @type { import("protractor").Config }
@@ -28,9 +29,38 @@ exports.config = {
     defaultTimeoutInterval: 50000,
     print: function() {}
   },
+
   onPrepare() {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
     });
+
+    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+      consolidateAll: true,
+      savePath: './',
+      filePrefix: 'xmlresults'
+  }));
+},
+  onComplete: function () {
+    var browserName, browserVersion;
+    var capsPromise = browser.getCapabilities();
+
+    capsPromise.then(function (caps) {
+        browserName = caps.get('browserName');
+        browserVersion = caps.get('version');
+        platform = caps.get('platform');
+
+        testConfig = {
+            reportTitle: 'Protractor Test Execution Report',
+            outputPath: './store_test_results',
+            outputFilename: 'store_test_results',
+            testBrowser: browserName,
+            browserVersion: browserVersion,
+            modifiedSuiteName: false,
+            screenshotsOnlyOnFailure: false,
+            testPlatform: platform
+        };
+        new htmlReporter().from('./xmlresults.xml', testConfig);
+    });
+}
   }
-};
