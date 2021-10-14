@@ -28,3 +28,6 @@ jobs:
         - run:
             name: Run test
             command: npm test
+
+        - store_test_results:
+            path: /e2e/Result
