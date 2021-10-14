@@ -27,13 +27,12 @@ jobs:
               - "node_modules"
 
         - run: mkdir ~/e2e/Result
-      
         - run:
             name: Run test
             command: npm test
             environment:
                 MOCHA_FILE: ~/e2e/Result/xmlresults.xml
-              when: alway
+              when: always
 
         - store_test_results:
             path: ~/e2e/Result
