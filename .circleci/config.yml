@@ -30,4 +30,4 @@ jobs:
             command: npm test
 
         - store_test_results:
-            path: ~/e2e/Result/
+            path: cd e2e/Result/
