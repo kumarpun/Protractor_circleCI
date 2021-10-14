@@ -14,7 +14,7 @@ jobs:
             DBUS_SESSION_BUS_ADDRESS: /dev/null
       steps:
         - checkout
-
+  
         - run: google-chrome --version
   
         - run:
