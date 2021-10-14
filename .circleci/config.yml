@@ -28,6 +28,7 @@ jobs:
         - run:
             name: Run test
             command: npm test
+            
             environment:
                 MOCHA_FILE: ~/e2e/xmlresults.xml
               when: always
